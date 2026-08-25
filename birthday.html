@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Special Day 🎂</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="hearts">
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>🌸</span>
+    <span>✨</span>
+    <span>🎀</span>
+</div>
+
+<main class="page">
+
+    <div class="glass-card">
+
+        <div class="emoji">🎂</div>
+
+        <p class="small-title">
+            THE COUNTDOWN IS ON
+        </p>
+
+        <h1>
+            Your Special <span>Day</span> 💗
+        </h1>
+
+        <p class="subtitle">
+            The day you've been waiting for is finally here! ✨
+            <br>
+            Let's make this birthday a little more special.
+        </p>
+
+        <!-- COUNTDOWN -->
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+
+
+        <!-- CAKE -->
+
+        <div class="cake">
+            🎂
+        </div>
+
+        <h2 class="birthday-text">
+            Happy Birthday! 🎉
+        </h2>
+
+        <p class="message">
+            May your day be filled with laughter,
+            beautiful moments, unexpected happiness
+            and lots of cake. 🍰💗
+        </p>
+
+        <br>
+
+        <a href="memories.html" class="btn">
+            See Our Memories 📸 →
+        </a>
+
+        <br><br>
+
+        <a href="index.html" class="back">
+            ← Back
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+    One more page waiting for you... 💕
+</footer>
+
+
+<script>
+
+/* =====================================
+   BIRTHDAY COUNTDOWN
+   26 AUGUST 2026
+===================================== */
+
+const birthdayDate =
+    new Date("August 26, 2026 00:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const difference =
+        birthdayDate - now;
+
+
+    if (difference <= 0) {
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference / 1000) % 60
+        );
+
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Message 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="hearts">
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>🌸</span>
+    <span>✨</span>
+    <span>💌</span>
+</div>
+
+
+<main class="page">
+
+    <div class="glass-card message-card">
+
+        <div class="emoji">💌</div>
+
+        <p class="small-title">
+            ONE LAST LITTLE THING
+        </p>
+
+        <h1>
+            A Message <span>For You</span> 💗
+        </h1>
+
+        <p class="subtitle">
+            I couldn't make a birthday website without
+            leaving you a little message.
+        </p>
+
+
+        <!-- ENVELOPE -->
+
+        <div class="envelope" onclick="openLetter()">
+
+            <div class="envelope-top"></div>
+
+            <div class="letter">
+
+                <h2>Hey! 🌸</h2>
+
+                <p>
+                    Happy Birthday! 🎂
+                </p>
+
+            </div>
+
+            <div class="envelope-bottom"></div>
+
+        </div>
+
+
+        <p class="click-text">
+            👆 Click the envelope
+        </p>
+
+
+        <!-- MESSAGE -->
+
+        <div id="letterMessage" class="letter-message">
+
+            <h2>Happy Birthday! 🎉💗</h2>
+
+            <p>
+                I hope this birthday brings you
+                everything you've been wishing for.
+            </p>
+
+            <p>
+                Keep smiling, keep laughing,
+                and keep being the amazing person
+                you are. 🌷
+            </p>
+
+            <p>
+                May this year give you lots of
+                happiness, beautiful memories,
+                exciting adventures and countless
+                reasons to smile.
+            </p>
+
+            <p>
+                And remember...
+                you deserve all the good things
+                coming your way. ✨
+            </p>
+
+            <p class="signature">
+                Once again, Happy Birthday! 💕
+            </p>
+
+        </div>
+
+
+        <br>
+
+        <a href="final.html" class="btn">
+            Final Surprise 🎉 →
+        </a>
+
+        <br><br>
+
+        <a href="memories.html" class="back">
+            ← Back
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+    A little message, made with a lot of happiness ❤️
+</footer>
+
+
+<script>
+
+function openLetter() {
+
+    const message =
+        document.getElementById("letterMessage");
+
+    message.classList.toggle("show");
+
+    const text =
+        document.querySelector(".click-text");
+
+    if (message.classList.contains("show")) {
+
+        text.innerText =
+            "💗 Your message is open!";
+
+    } else {
+
+        text.innerText =
+            "👆 Click the envelope";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
+
+Now add this **at the bottom of `style.css`**:
+
+```css
+/* =====================================
+   MESSAGE PAGE
+===================================== */
+
+.message-card {
+    max-width: 850px;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 40px auto 15px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-bottom {
+    position: absolute;
+    inset: 0;
+    background: #e89ab9;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(90,30,70,.2);
+}
+
+.envelope-top {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 105px solid #d978a0;
+}
+
+.letter {
+    position: absolute;
+    z-index: 2;
+    width: 260px;
+    height: 150px;
+    background: #fffafa;
+    left: 20px;
+    top: 20px;
+    border-radius: 7px;
+    padding: 25px;
+    transition: .7s;
+}
+
+.letter h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #d63384;
+    font-size: 30px;
+}
+
+.letter p {
+    margin-top: 10px;
+}
+
+.envelope:hover .letter {
+    transform: translateY(-45px);
+}
+
+.click-text {
+    font-size: 14px;
+    opacity: .7;
+    margin-bottom: 25px;
+}
+
+.letter-message {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .8s;
+}
+
+.letter-message.show {
+    max-height: 600px;
+    padding: 25px;
+    opacity: 1;
+}
+
+.letter-message h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 42px;
+    color: #d63384;
+    margin-bottom: 15px;
+}
+
+.letter-message p {
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
+    color: #9c4d96;
+}
+
+@media(max-width:600px) {
+
+    .envelope {
+        width: 270px;
+        height: 180px;
+    }
+
+    .envelope-top {
+        border-left-width: 135px;
+        border-right-width: 135px;
+        border-top-width: 95px;
+    }
+
+    .letter {
+        width: 230px;
+        height: 135px;
+        left: 20px;
+    }
+}
+```
+
+### 💌 Test it
+
+Go:
+
+**Page 3 → There's More 💌 →**
+
+Then click the **envelope**.
+
+The hidden message should open underneath. ✨
+
+After that, **Final Surprise 🎉 →** takes her to the last page.
+
+Next is the **BEST PAGE — `final.html` 🎂🎉**, with a big birthday celebration and confetti.
